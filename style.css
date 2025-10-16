@@ -1,0 +1,395 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --color-primary: #D4AF37; /* Gold/Bronze - for a premium safari feel */
+    --color-secondary: #004d40; /* Deep Teal/Green - nature/safari color */
+    --color-dark: #333;
+    --color-light: #f4f4f4;
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Arial', sans-serif;
+    --padding-section: 60px 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background: white;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 2. Utility Classes --- */
+.section-padding {
+    padding: var(--padding-section);
+    text-align: center;
+}
+
+.bg-light {
+    background: var(--color-light);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    color: var(--color-secondary);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-dark);
+}
+
+.btn-primary:hover {
+    background: darken(var(--color-primary), 10%); /* conceptual darken */
+    background: #c5a34a; /* specific darker shade */
+}
+
+.btn-secondary {
+    background: var(--color-secondary);
+    color: white;
+    padding: 8px 15px;
+}
+
+.btn-secondary:hover {
+    background: darken(var(--color-secondary), 10%); /* conceptual darken */
+    background: #00332c;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+/* --- 3. Header & Navigation --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white for a clean look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.nav-list {
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--color-dark);
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.main-nav a:not(.btn):hover {
+    color: var(--color-primary);
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-secondary);
+}
+
+
+/* --- 4. Hero Section --- */
+.hero {
+    background: url('hero-safari.jpg') no-repeat center center/cover; /* Placeholder image */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* --- 5. Booking Bar/Search Form --- */
+.booking-bar {
+    background: var(--color-secondary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%); /* Pulls it up over the hero */
+    margin-bottom: -100px; /* Counteracts the pull-up for the next section */
+    position: relative;
+    z-index: 5;
+}
+
+.booking-bar h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.search-form input,
+.search-form select,
+.search-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.search-form button {
+    flex: 0 0 auto; /* Don't allow button to shrink */
+}
+
+
+/* --- 6. Destination & Tour Grids (Cards) --- */
+.destination-grid, .tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.destination-card h3 {
+    padding: 15px 10px;
+}
+.destination-card p {
+    padding-bottom: 15px;
+}
+
+.tour-card {
+    text-align: left;
+}
+
+.tour-details {
+    padding: 15px;
+}
+
+.tour-details h4 {
+    margin-bottom: 5px;
+    color: var(--color-dark);
+}
+
+.tour-details p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* --- 7. CTA & Footer --- */
+.cta-section {
+    background: var(--color-dark);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cta-section h2 {
+    color: var(--color-primary);
+}
+
+.main-footer {
+    background: var(--color-secondary);
+    color: white;
+    padding: 40px 20px 10px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.footer-col h4 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    color: var(--color-light);
+    display: block;
+    padding: 3px 0;
+}
+
+.footer-col a:hover {
+    color: var(--color-primary);
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- 8. Media Queries (Mobile Responsiveness) --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .main-nav {
+        /* Mobile menu hidden by default */
+        display: none;
+        position: absolute;
+        top: 60px; /* Height of the header */
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    .main-nav.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+    }
+
+    .nav-list li a {
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid var(--color-light);
+    }
+    
+    .nav-list li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .booking-bar {
+        padding: 15px;
+        transform: none; /* No vertical offset on mobile */
+        margin-bottom: 0;
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-form input,
+    .search-form select,
+    .search-form button {
+        width: 100%;
+    }
+}
