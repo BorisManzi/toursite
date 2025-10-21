@@ -1,8 +1,8 @@
-# andasy.hcl app configuration file generated for toursite on Thursday, 16-Oct-25 15:59:55 CAT
+# andasy.hcl app configuration file generated for tourismsite on Tuesday, 21-Oct-25 17:00:06 CAT
 #
 # See https://github.com/quarksgroup/andasy-cli for information about how to use this file.
 
-app_name = "toursite"
+app_name = "tourismsite"
 
 app {
 
@@ -17,7 +17,7 @@ app {
   }
 
   process {
-    name = "toursite"
+    name = "tourismsite"
   }
 
 }

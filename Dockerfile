@@ -1,5 +1,12 @@
-FROM pierrezemb/gostatic
+# Dockerfile image
+FROM  
 
-COPY . /srv/http/
+WORKDIR /app
 
-CMD ["-port","8080","-https-promote", "-enable-logging"]
+COPY . .
+
+
+ARG VERSION  
+
+EXPOSE 8080 
+ENTRYPOINT ["./bin"]
